@@ -1,0 +1,17 @@
+.menu{
+    background-color: lightblue;
+}
+
+.menuContainer{
+    max-width: 1200px;
+    margin: auto;
+    padding: 0 20px;
+    height: 60px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.menuItems{
+    
+}
