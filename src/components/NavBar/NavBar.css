@@ -1,5 +1,6 @@
 .menu{
-    background-color: lightblue;
+    background-color: var(--menu-bg-color);
+    border-bottom: 1px solid rgb(207, 207, 207);
 }
 
 .menuContainer{
@@ -10,4 +11,22 @@
     display: flex;
     align-items: center;
     justify-content: space-between;
+}
+
+.logo{
+    display: flex;
+    gap: 10px;
+    align-items: center;
+}
+
+.logoImg{
+    width: 40px;
+    height: 40px;
+}
+
+.logoName{
+    text-decoration: none;
+    color: var(--white-color);
+    font-weight: 500;
+    letter-spacing: 2px;
 }
