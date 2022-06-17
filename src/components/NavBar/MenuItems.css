@@ -1,0 +1,17 @@
+.menuItems{
+    display: flex;
+    gap: 30px;
+}
+
+.menuItems > a{
+    padding: 5px 10px;
+    text-decoration: none;
+    border-radius: 10px;
+    color: var(--menuItems-color);
+}
+
+.menuItems > a:hover{
+    background-color: var(--menuItems-bg-color);
+    color: var(--white-color);
+    transition: all .5s ease;
+}
