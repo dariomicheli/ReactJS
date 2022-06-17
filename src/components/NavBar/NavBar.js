@@ -1,5 +1,6 @@
 import './NavBar.css';
-import ShoppingCart from '../ShoppingCart/ShoppingCart';
+import MenuItems from './MenuItems';
+import logo from '../../assets/logo.svg';
 
 const NavBar = () =>{
     return(
@@ -9,12 +10,7 @@ const NavBar = () =>{
                     <img src="" alt="" />
                     <span>LOGO</span>
                 </div>
-                <nav className="menuItems">
-                    <a href="/">Categoria 1</a>
-                    <a href="/">Categoria 2</a>
-                    <a href="/">Categoria 3</a>
-                </nav>
-                <ShoppingCart />
+                <MenuItems />
             </div>
         </div>
     );
