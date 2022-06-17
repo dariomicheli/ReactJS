@@ -5,7 +5,7 @@ export default function CartWidget() {
     return (
         <div className='shoppingCart'>
             <a href='/'><ShoppingCartIcon htmlColor='#fbfcff'/></a> 
-            <span>8</span> 
+            <span>5</span> 
         </div>
     );
 }
