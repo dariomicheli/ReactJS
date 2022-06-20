@@ -1,6 +1,7 @@
 import './NavBar.css';
 import MenuItems from './MenuItems';
 import logo from '../../assets/logo.png';
+import CartWidget from '../CartWidget/CartWidget';
 
 const NavBar = () =>{
     return(
@@ -11,6 +12,7 @@ const NavBar = () =>{
                     <a href="/" className='logoName'><span>HAPPY FEET</span></a>
                 </div>
                 <MenuItems />
+                <CartWidget />
             </div>
         </div>
     );

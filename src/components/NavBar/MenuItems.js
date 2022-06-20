@@ -1,11 +1,26 @@
 import './MenuItems.css';
 
+const items = [
+    {
+        name:"Categoria 1",
+        url:"/"
+    },
+    {
+        name:"Categoria 2",
+        url:"/"
+    },
+    {
+        name:"Categoria 3",
+        url:"/"
+    }
+];
+
 export default function MenuItems() {
     return (
         <nav className="menuItems">
-            <a href="/">Categoria 1</a>
-            <a href="/">Categoria 2</a>
-            <a href="/">Categoria 3</a>
+            {items.map((item,index) => (
+                <a href={item.url} key={index}>{item.name}</a>
+            ))}
         </nav>
     )
 }
