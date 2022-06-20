@@ -4,7 +4,9 @@ import './CartWidget.css';
 export default function CartWidget() {
     return (
         <div className='shoppingCart'>
-            <a href='/'><ShoppingCartIcon htmlColor='#fbfcff'/></a> 
+            <button>
+                <ShoppingCartIcon htmlColor='#fbfcff'/>
+            </button> 
             <span>5</span> 
         </div>
     );

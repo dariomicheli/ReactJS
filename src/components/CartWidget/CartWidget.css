@@ -3,6 +3,13 @@
     align-items: center;
 }
 
+.shoppingCart button{
+    background:none;
+    border: none;
+    cursor: pointer;
+    color: inherit;
+}
+
 .shoppingCart span{
     align-self: flex-start;
     font-size: 14px;
