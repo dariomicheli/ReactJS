@@ -3,29 +3,29 @@ import './ItemCount.css';
 
 function ItemCount({stock,initial,onAdd}) {
     
-    const [cantidad,setCantidad] = useState(parseInt(initial));
+    const [amount,setAmount] = useState(initial);
     
-    const incrementar = () => {
-        if (cantidad < stock) setCantidad(cantidad + 1);
+    const handleValue = (value) => {     
+        if(value>0){
+            if (amount < stock) setAmount(amount + value);
+        }else{
+            if (amount > initial) setAmount(amount + value);
+        }  
     }
 
-    const decrementar = () => {
-        if (cantidad > initial) setCantidad(cantidad - 1);
-    }
-
-    const agregar = () => {
-        if (stock>0) onAdd(cantidad);
+    const handleAdd = () => {
+        if (stock>0) onAdd(amount);
     }
 
     return (
         <div className='itemContainer'>
             <h2>Articulo</h2>
             <div className='itemAmount'>
-                <button className='itemBtn' onClick={decrementar}>-</button>
-                <span>{cantidad}</span>
-                <button className='itemBtn' onClick={incrementar}>+</button>
+                <button className='itemBtn' onClick={()=>handleValue(-1)}>-</button>
+                <span>{amount}</span>
+                <button className='itemBtn' onClick={()=>handleValue(1)}>+</button>
             </div>
-            <button onClick={agregar}>Agregar al carrito</button>
+            <button className='itemContainer-btn' onClick={handleAdd}>Agregar al carrito</button>
         </div>
     )
 }
