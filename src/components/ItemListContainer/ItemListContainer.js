@@ -4,7 +4,7 @@ import ItemList from '../ItemList/ItemList';
 import BeatLoader from "react-spinners/BeatLoader";
 
 export default function ItemListContainer({greeting}) {
-    //funcion creada para pasar como prop en componente ItemCount
+
     const[productList,setProductList]=useState([]);
     const[loading,setLoading]=useState(true);
 
@@ -15,6 +15,7 @@ export default function ItemListContainer({greeting}) {
         textAlign:"center"
     }
     
+    //funcion creada para pasar como prop en componente ItemCount
 /*     const onAdd = (amount) => {
         alert(`Se agregaron ${amount} items al carrito`);
     } */
