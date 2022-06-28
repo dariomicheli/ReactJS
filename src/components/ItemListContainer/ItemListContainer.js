@@ -11,7 +11,6 @@ export default function ItemListContainer({greeting}) {
     //css para spinner
     const override: CSSProperties = {
         display:"block",
-        width:"30",
         margin: "0 auto",
         textAlign:"center"
     }
