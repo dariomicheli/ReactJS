@@ -1,0 +1,10 @@
+main{
+    background-color: rgb(230, 230, 230);
+    min-height: 100vh;
+}
+
+.main-container{
+    max-width: 1200px;
+    margin: auto;
+    padding: 60px 20px 0px 20px;
+}

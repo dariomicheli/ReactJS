@@ -7,10 +7,13 @@ function App() {
   return (
     <>
       <header>
-        <NavBar />
-        <ItemListContainer greeting='Hola Mundo!'/>
+        <NavBar /> 
       </header>
-      <main></main>
+      <main>
+        <div className='main-container'>
+          <ItemListContainer greeting='Hola Mundo!'/>
+        </div>
+      </main>
       <footer></footer>
       
     </>

@@ -1,9 +1,13 @@
-import React from 'react'
+import React from 'react';
+import Item from '../Item/Item';
+import './ItemList.css';
 
-function ItemList({items}) {
+function ItemList({productList}) {
   return (
-    <div>ItemList</div>
-  )
+    <div className='products-container'>
+        {productList.map((product)=><Item key={product.id} product={product}/>)}
+    </div>
+  );
 }
 
-export default ItemList
+export default ItemList;
