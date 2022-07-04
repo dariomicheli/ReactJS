@@ -4,23 +4,23 @@ import {NavLink} from 'react-router-dom';
 const items = [
     {
         id:1,
-        name:"Home",
-        path:"/"
-    },
-    {
-        id:2,
         name:"Zapatos",
         path:"/categoria/zapatos"
     },
     {
-        id:3,
+        id:2,
         name:"Zapatillas",
         path:"/categoria/zapatillas"
     },
     {
-        id:4,
+        id:3,
         name:"Botas",
         path:"/categoria/botas"
+    },
+    {
+        id:4,
+        name:"Ver todo",
+        path:"/"
     }
 ];
 

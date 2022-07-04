@@ -5,14 +5,16 @@ import {Link} from 'react-router-dom';
 function Item({product}) {
   const {id,name,pictureUrl,price}=product;
   return (
-    <div className='card-container'>
-      <img src={pictureUrl} alt={name} className='card-img'/>
-      <div className='card-body'>
-        <h2 className='card-name'>{name}</h2>
-        <span className='card-price'>${price}</span>
+    <Link to ={`/detalle/${id}`}>
+      <div className='card-container'>
+        <img src={pictureUrl} alt={name} className='card-img'/>
+        <div className='card-body'>
+          <h2 className='card-name'>{name}</h2>
+          <span className='card-price'>${price}</span>
+        </div>
+        {/*<Link to={`/detalle/${id}`} className='card-btn'>Ver más</Link>*/}
       </div>
-      <Link to={`/detalle/${id}`} className='card-btn'>Ver más</Link>
-    </div>
+    </Link>
   )
 }
 
