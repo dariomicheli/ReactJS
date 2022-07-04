@@ -1,25 +1,34 @@
 import './MenuItems.css';
+import {NavLink} from 'react-router-dom';
 
 const items = [
     {
-        name:"Categoria 1",
-        url:"/"
+        id:1,
+        name:"Home",
+        path:"/"
     },
     {
-        name:"Categoria 2",
-        url:"/"
+        id:2,
+        name:"Zapatos",
+        path:"/categoria/zapatos"
     },
     {
-        name:"Categoria 3",
-        url:"/"
+        id:3,
+        name:"Zapatillas",
+        path:"/categoria/zapatillas"
+    },
+    {
+        id:4,
+        name:"Botas",
+        path:"/categoria/botas"
     }
 ];
 
 export default function MenuItems() {
     return (
         <nav className="menuItems">
-            {items.map((item,index) => (
-                <a href={item.url} key={index}>{item.name}</a>
+            {items.map((item) => (
+                <NavLink to={item.path} key={item.id}>{item.name}</NavLink>
             ))}
         </nav>
     )

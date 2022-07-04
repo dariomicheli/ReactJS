@@ -1,0 +1,16 @@
+.detail-container{
+    background-color: #fff;
+    margin-top: 60px;
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.detail-img{
+    width: 600px;
+    padding: 20px;
+    object-fit: contain;
+}
+
+.detail-body{
+    width: 500px;
+}

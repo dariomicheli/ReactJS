@@ -1,3 +1,7 @@
+footer{
+    background-color: var(--menu-bg-color);
+}
+
 .footer-container{
     max-width: 1200px;
     min-height: 30vh;

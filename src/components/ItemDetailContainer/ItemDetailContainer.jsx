@@ -1,20 +1,23 @@
 import React from 'react';
 import {useEffect, useState} from 'react';
-import { getData } from "../../mocks/fakeApi";
+import { getProduct } from "../../mocks/fakeApi";
 import ItemDetail from '../ItemDetail/ItemDetail';
+import {useParams} from 'react-router-dom';
 
 function ItemDetailContainer() {
 
-    const [productList,setProductList]=useState([]);
+    const [product,setProduct]=useState({});
+    const {detalleId} = useParams();
 
     useEffect(() => {
-        getData
-        .then((result) => setProductList(result))
-    },[]);
+        getProduct(detalleId)
+        .then((result) => setProduct(result))
+        .catch((err) => console.log(err))
+    },[detalleId]);
 
     return (
         <>
-            <ItemDetail product={productList[2]} />
+            <ItemDetail product={product} />
         </>
     );
 }
