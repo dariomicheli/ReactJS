@@ -1,10 +1,10 @@
 .itemContainer{
-    width: 200px;
-    height: 200px;
+    width: 80%;
     margin: auto;
-    background-color: lightgray;
+    background-color: inherit;
     display: flex;
     flex-direction: column;
+    gap: 20px;
     align-items: center;
     justify-content: space-around;
 }
@@ -15,6 +15,7 @@
     display: flex;
     align-items: center;
     justify-content: space-between;
+    border: 1px solid rgb(218, 218, 218);
 }
 
 .itemAmount span{

@@ -33,13 +33,11 @@ export default function ItemListContainer({greeting}) {
     },[categoryId]);
 
     return(
-        <div className='main-container'>
+        <main>
             {loading 
             ? <BeatLoader loading={loading} cssOverride={override} size={15} color='#36D7B7'/>
             : <ItemList productList={productList}/>
-        }
-            
-            
-        </div>
+            }      
+        </main>
     ); 
 }

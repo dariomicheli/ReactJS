@@ -19,7 +19,6 @@ function ItemCount({stock,initial,onAdd}) {
 
     return (
         <div className='itemContainer'>
-            <h2>Articulo</h2>
             <div className='itemAmount'>
                 <button className='itemBtn' onClick={()=>handleValue(-1)}>-</button>
                 <span>{amount}</span>

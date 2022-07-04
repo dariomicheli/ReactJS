@@ -6,7 +6,7 @@
             name:'Llave Negro',
             description:'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec eget.',
             category:'zapatos',
-            pictureUrl:'https://i.postimg.cc/8PJnc39f/converse-tiny.png',
+            pictureUrl:'https://viamo.vteximg.com.br/arquivos/ids/256560-526-672/VC07484CD001.jpg?v=637916027983170000',
             stock:5,
             price:2000},
         {
@@ -14,7 +14,7 @@
             name:'Llave Gris',
             description:'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec eget.',
             category:'zapatos',
-            pictureUrl:'https://i.postimg.cc/8PJnc39f/converse-tiny.png',
+            pictureUrl:'https://viamo.vteximg.com.br/arquivos/ids/256572-526-672/VC07484CD022.jpg?v=637916042782530000',
             stock:10,
             price:5000},
         {
@@ -22,7 +22,7 @@
             name:'Misterio Negro',
             description:'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec eget.',
             category:'zapatillas',
-            pictureUrl:'https://i.postimg.cc/8PJnc39f/converse-tiny.png',
+            pictureUrl:'https://viamo.vteximg.com.br/arquivos/ids/256534-526-672/VC07459CV001.jpg?v=637915936950300000',
             stock:3,
             price:3000},
         {
@@ -30,7 +30,7 @@
             name:'Misterio Blanco',
             description:'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec eget.',
             category:'zapatillas',
-            pictureUrl:'https://i.postimg.cc/8PJnc39f/converse-tiny.png',
+            pictureUrl:'https://viamo.vteximg.com.br/arquivos/ids/256538-526-672/VC07459CV002.jpg?v=637915946946730000',
             stock:4,
             price:3500},
         {
