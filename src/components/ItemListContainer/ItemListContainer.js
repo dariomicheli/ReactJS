@@ -10,7 +10,7 @@ export default function ItemListContainer({greeting}) {
     const[productList,setProductList]=useState([]);
     const[loading,setLoading]=useState(true);
 
-    const {categoryId} = useParams();
+    const {id} = useParams();
 
     //css para spinner
     const override: CSSProperties = {
@@ -26,11 +26,11 @@ export default function ItemListContainer({greeting}) {
 
     useEffect(()=>{
         setLoading(true);
-        getProducts(categoryId)
+        getProducts(id)
         .then((result)=>setProductList(result))
         .catch((err) => console.log(err))
         .finally(() => setLoading(false))
-    },[categoryId]);
+    },[id]);
 
     return(
         <main>

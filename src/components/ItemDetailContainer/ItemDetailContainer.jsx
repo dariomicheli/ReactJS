@@ -9,7 +9,7 @@ function ItemDetailContainer() {
 
     const [product,setProduct]=useState({});
     const[loading,setLoading]=useState(true);
-    const {detalleId} = useParams();
+    const {id} = useParams();
 
     //css para spinner
     const override: CSSProperties = {
@@ -20,11 +20,11 @@ function ItemDetailContainer() {
 
     useEffect(() => {
         setLoading(true);
-        getProduct(detalleId)
+        getProduct(id)
         .then((result) => setProduct(result))
         .catch((err) => console.log(err))
         .finally(() => setLoading(false))
-    },[detalleId]);
+    },[id]);
 
     return (
         <main>

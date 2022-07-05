@@ -22,6 +22,17 @@
 .logoImg{
     width: 40px;
     height: 40px;
+    animation: giro 5s ease-in-out 5s infinite alternate;
+}
+
+@keyframes giro{
+    from{
+        transform: rotate(0deg);
+    }
+    to{
+        transform: rotate(-60deg);
+    }
+    
 }
 
 .logoName{

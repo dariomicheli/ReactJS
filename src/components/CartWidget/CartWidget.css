@@ -3,11 +3,12 @@
     align-items: center;
 }
 
-.shoppingCart button{
-    background:none;
-    border: none;
-    cursor: pointer;
-    color: inherit;
+.shoppingCart a{
+    color:#fbfcff;
+}
+
+.shoppingCart a:hover{
+    color: var(--menuItems-bg-color);
 }
 
 .shoppingCart span{

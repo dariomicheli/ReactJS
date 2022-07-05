@@ -6,7 +6,7 @@ export default function CartWidget() {
     return (
         <div className='shoppingCart'>
             <Link to='/cart'>
-                <ShoppingCartIcon htmlColor='#fbfcff'/>
+                <ShoppingCartIcon/>
             </Link> 
             <span>5</span> 
         </div>

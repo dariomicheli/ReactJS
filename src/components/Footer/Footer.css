@@ -4,7 +4,25 @@ footer{
 
 .footer-container{
     max-width: 1200px;
-    min-height: 30vh;
+    min-height: 15vh;
     background-color: var(--menu-bg-color);
     margin: auto;
+    color: #fff;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+}
+
+.footer-redes{
+    display: flex;
+    gap: 20px;
+}
+
+.footer-redes a{
+    color: #fff;
+}
+
+.footer-redes a:hover{
+    color: var(--menuItems-bg-color);
 }
