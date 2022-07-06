@@ -18,11 +18,6 @@ export default function ItemListContainer({greeting}) {
         margin: "0 auto",
         textAlign:"center"
     }
-    
-    //funcion creada para pasar como prop en componente ItemCount
-/*     const onAdd = (amount) => {
-        alert(`Se agregaron ${amount} items al carrito`);
-    } */
 
     useEffect(()=>{
         setLoading(true);

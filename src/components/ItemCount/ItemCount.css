@@ -39,10 +39,21 @@
     height: 25px;
     background-color: #fff;
     border: 1px solid blue;
-    cursor: pointer;
     color: blue;
+}
+
+.itemContainer-btn:disabled, .itemBtn:disabled{
+    background-color: rgba(239, 239, 239, 0.3);
+    color: rgba(16, 16, 16, 0.3);
+    border-color: rgba(118, 118, 118, 0.3);
+}
+
+.itemContainer-btn:disabled:hover , .itemBtn:disabled:hover{
+    color: rgba(16, 16, 16, 0.3); 
+    cursor: auto; 
 }
 
 .itemContainer-btn:hover, .itemBtn:hover{
     color: red;
+    cursor: pointer;
 }

@@ -7,7 +7,7 @@
             description:'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec eget.',
             category:'zapatos',
             pictureUrl:'https://viamo.vteximg.com.br/arquivos/ids/256560-526-672/VC07484CD001.jpg?v=637916027983170000',
-            stock:5,
+            stock:0,
             price:2000},
         {
             id:2,
