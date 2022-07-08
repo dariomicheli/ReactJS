@@ -10,11 +10,8 @@ function ItemDetail({product}) {
     const {addItem} = useContext(CartContext);
 
     const onAdd = (amount) => {
-        alert(`Se agregaron ${amount} items al carrito`);
         setCart(!cart);
         addItem(product,amount);
-        //const variable {...product, qty: amount}
-        //addItem(variable)
     }
     
     return (
@@ -31,8 +28,7 @@ function ItemDetail({product}) {
                     cart 
                     ? <Link to="/cart" className="detail-btn">Finalizar compra</Link>
                     : <ItemCount stock={stock} initial={1} onAdd={onAdd}/>
-                }
-                
+                }                
             </div>        
         </div>
     );

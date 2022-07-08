@@ -1,32 +1,25 @@
-import React, {useState, createContext} from 'react';
+import React, { useState, createContext} from 'react';
 
 export const CartContext = createContext();
 
-const CartProvider = ({defaultValue = [], children}) => {
+const CartProvider = ({ children }) => {
 
-    const [cartProducts, setCartProducts] = useState([{
-        id:2,
-        name:'Llave Gris',
-        description:'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec eget.',
-        category:'zapatos',
-        pictureUrl:'https://viamo.vteximg.com.br/arquivos/ids/256572-526-672/VC07484CD022.jpg?v=637916042782530000',
-        stock:10,
-        price:500
-    }]);
+    const [cartProducts, setCartProducts] = useState([]);   
     
     const addItem = (item,quantity) => {
-        //hacer un setproducts con usuario y spread PERO validando q el producto no exista
-        console.log(cartProducts);
-        item.quantity = quantity;
-        console.log(item);
         if (isInCart(item.id)) {
-            const updateProduct = [...cartProducts];
-            console.log(updateProduct);
-        } 
+            const updateCartProducts = [...cartProducts];
+            const searchIindex = updateCartProducts.findIndex(product => product.id === item.id);
+            updateCartProducts[searchIindex].quantity += quantity;
+            setCartProducts(updateCartProducts);
+        }else{
+            const newCartProduct = {...item, quantity: quantity};
+            setCartProducts([...cartProducts,newCartProduct]);
+        }
     }
 
     const removeItem = (itemId) => {
-        //eliminar con un metodo filter
+        setCartProducts(cartProducts.filter((product) => product.id !== itemId));        
     }
 
     const clear = () => {
@@ -37,9 +30,16 @@ const CartProvider = ({defaultValue = [], children}) => {
         return cartProducts.some((item) => item.id === id);
     }
 
-    //Obtener cantidad con foreach 
+    const amountCartProducts = () => {
+        let cantidad = 0;
+        cartProducts.forEach(element => {
+            cantidad += element.quantity;
+        });
+        return cantidad;
+    }
+
     return (
-        <CartContext.Provider value={{cartProducts,addItem,removeItem,clear,isInCart}}>
+        <CartContext.Provider value={{cartProducts,addItem,removeItem,clear,amountCartProducts}}>
             {children}
         </CartContext.Provider>
     )
