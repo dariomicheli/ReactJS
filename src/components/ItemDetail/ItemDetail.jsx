@@ -1,17 +1,20 @@
-import React from 'react';
-import {useState} from 'react';
+import React, {useState, useContext}  from 'react';
 import './ItemDetail.css';
 import ItemCount from "../ItemCount/ItemCount";
 import {Link} from 'react-router-dom';
+import {CartContext} from '../../context/CartContext';
 
 function ItemDetail({product}) {
     const {name,price,description,stock,pictureUrl} = product;
     const [cart,setCart] = useState(false);
+    const {addItem} = useContext(CartContext);
 
-    //funcion creada para pasar como prop en componente ItemCount
     const onAdd = (amount) => {
         alert(`Se agregaron ${amount} items al carrito`);
         setCart(!cart);
+        addItem(product,amount);
+        //const variable {...product, qty: amount}
+        //addItem(variable)
     }
     
     return (
