@@ -3,15 +3,13 @@ import {CartContext} from '../../context/CartContext';
 
 const Cart = () => {
 
-  const {cartProducts,removeItem,clear} = useContext(CartContext);
+  const {cartProducts,clear} = useContext(CartContext);
 
   return (
     <main>
       {
         cartProducts.map((product) => 
-          <>
-            <p key={product.id}>Producto: {product.name} Cantidad: {product.quantity}</p>
-          </>
+        <p key={product.id}>Producto: {product.name} Cantidad: {product.quantity}</p>
         )
       }
       <button onClick={clear}>Borrar Todo</button>
