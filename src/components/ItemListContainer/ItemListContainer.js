@@ -4,6 +4,8 @@ import ItemList from '../ItemList/ItemList';
 import BeatLoader from "react-spinners/BeatLoader";
 import './ItemListContainer.css';
 import {useParams} from 'react-router-dom';
+import { db } from "../../firebase/firebase";
+import { getDocs, collection, query } from "firebase/firestore";
 
 export default function ItemListContainer({greeting}) {
 
@@ -20,6 +22,13 @@ export default function ItemListContainer({greeting}) {
     }
 
     useEffect(()=>{
+/* 
+        const itemCollection = collection(db,'itemCollection');
+        getDocs(itemCollection)
+        .then((result) => console.log(result))
+ */
+
+
         setLoading(true);
         getProducts(id)
         .then((result)=>setProductList(result))
