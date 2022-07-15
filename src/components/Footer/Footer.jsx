@@ -6,16 +6,14 @@ import './Footer.css';
 
 function Footer() {
     return(
-        <footer>
-            <div className='footer-container'>
-                <div className='footer-redes'>
-                    <a href="https://www.facebook.com" rel="noreferrer" target="_blank"><FacebookIcon/></a>
-                    <a href="https://www.instagram.com" rel="noreferrer" target="_blank"><InstagramIcon/></a>
-                    <a href="https://www.twitter.com" rel="noreferrer" target="_blank"><TwitterIcon/></a>
-                </div>
-                <p>Creado por Dario Micheli</p>
+        <div className='footer-container'>
+            <div className='footer-redes'>
+                <a href="https://www.facebook.com" rel="noreferrer" target="_blank"><FacebookIcon/></a>
+                <a href="https://www.instagram.com" rel="noreferrer" target="_blank"><InstagramIcon/></a>
+                <a href="https://www.twitter.com" rel="noreferrer" target="_blank"><TwitterIcon/></a>
             </div>
-        </footer>
+            <p>Creado por Dario Micheli</p>
+        </div>
     );
 }
 

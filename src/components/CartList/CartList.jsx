@@ -5,11 +5,10 @@ import "./CartList.css";
 
 const CartList = () => {
 
-  const {cartProducts,clear} = useContext(CartContext);
+  const {cartProducts} = useContext(CartContext);
 
   return (
-    <main>
-      <h2 className='cartList-title'>Mi Carrito</h2>
+    <>
       <div className='cartList-container'>
         {
           cartProducts.map((product) => 
@@ -17,11 +16,7 @@ const CartList = () => {
           )
         }
       </div>
-      <div>
-        Total
-      </div>
-      <button onClick={clear}>Borrar Todo</button>
-    </main>
+    </>
   )
 }
 

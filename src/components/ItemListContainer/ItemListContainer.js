@@ -37,11 +37,11 @@ export default function ItemListContainer({greeting}) {
     },[id]);
 
     return(
-        <main>
+        <>
             {loading 
             ? <BeatLoader loading={loading} cssOverride={override} size={15} color='#36D7B7'/>
             : <ItemList productList={productList}/>
             }      
-        </main>
+        </>
     ); 
 }

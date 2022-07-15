@@ -1,5 +1,6 @@
 .cartList-container{
     margin: 10px 0;
+    width: 70%;
     display: flex;
     flex-direction: column;
     gap: 10px;
