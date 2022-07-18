@@ -12,4 +12,4 @@ Se utilizó la libreria [Material-UI](https://mui.com/) para los iconos y [React
 
 ## Diseño de la App
 
-![Diseño app](https://addons.prestashop.com/1446966-pbig/stark-mobile-app-react-native-app-for-android-ios.jpg)
+![Diseño app](https://raw.githubusercontent.com/dariomicheli/ReactJS/main/src/design/App%20HappyFeet.png)
