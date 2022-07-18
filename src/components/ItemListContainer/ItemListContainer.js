@@ -1,17 +1,15 @@
 import { useEffect, useState, CSSProperties } from 'react';
-import { getProducts } from '../../mocks/fakeApi';
 import ItemList from '../ItemList/ItemList';
 import BeatLoader from "react-spinners/BeatLoader";
 import './ItemListContainer.css';
 import {useParams} from 'react-router-dom';
 import { db } from "../../firebase/firebase";
-import { getDocs, collection, query } from "firebase/firestore";
+import { getDocs, collection, query, where } from "firebase/firestore";
 
 export default function ItemListContainer({greeting}) {
-
+    
     const[productList,setProductList]=useState([]);
     const[loading,setLoading]=useState(true);
-
     const {id} = useParams();
 
     //css para spinner
@@ -22,16 +20,21 @@ export default function ItemListContainer({greeting}) {
     }
 
     useEffect(()=>{
-/* 
         const itemCollection = collection(db,'itemCollection');
-        getDocs(itemCollection)
-        .then((result) => console.log(result))
- */
-
-
-        setLoading(true);
-        getProducts(id)
-        .then((result)=>setProductList(result))
+        let q;
+        id
+            ? q = query(itemCollection,where('category','==',`${id}`))
+            : q = itemCollection
+        getDocs(q)
+        .then((result) => {
+            const lista = result.docs.map(product => {
+                return {
+                    id: product.id,
+                    ...product.data()
+                }
+            })
+            setProductList(lista);
+        })
         .catch((err) => console.log(err))
         .finally(() => setLoading(false))
     },[id]);
