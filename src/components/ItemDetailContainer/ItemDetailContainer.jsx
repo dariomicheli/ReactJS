@@ -1,5 +1,4 @@
-import React from 'react';
-import {useEffect, useState,CSSProperties} from 'react';
+import React, {useEffect, useState,CSSProperties} from 'react';
 import ItemDetail from '../ItemDetail/ItemDetail';
 import {useParams} from 'react-router-dom';
 import BeatLoader from "react-spinners/BeatLoader";
@@ -9,7 +8,7 @@ import { doc, getDoc, collection} from "firebase/firestore";
 function ItemDetailContainer() {
 
     const [product,setProduct]=useState({});
-    const[loading,setLoading]=useState(true);
+    const [loading,setLoading]=useState(true);
     const {id} = useParams();
 
     //css para spinner
@@ -21,8 +20,7 @@ function ItemDetailContainer() {
 
     useEffect(() => {
         setLoading(true);
-        const itemCollection = collection(db,'itemCollection');
-        const refDoc = doc(itemCollection,id); 
+        const refDoc = doc(collection(db,'itemCollection'),id); 
         getDoc(refDoc)
         .then(result => setProduct({...result.data(),id: result.id}))
         .catch((err) => console.log(err))
@@ -32,8 +30,8 @@ function ItemDetailContainer() {
     return (
         <>
             {loading 
-            ? <BeatLoader loading={loading} cssOverride={override} size={15} color='#36D7B7'/>
-            : <ItemDetail product={product} />
+                ? <BeatLoader loading={loading} cssOverride={override} size={15} color='#36D7B7'/>
+                : <ItemDetail product={product} />
             }     
         </>
     );

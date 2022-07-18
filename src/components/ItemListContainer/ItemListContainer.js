@@ -21,20 +21,20 @@ export default function ItemListContainer({greeting}) {
 
     useEffect(()=>{
         setLoading(true);
-        const itemCollection = collection(db,'itemCollection');
-        let q;
-        id
-            ? q = query(itemCollection,where('category','==',`${id}`))
-            : q = itemCollection
+
+        const q = id
+            ? query(collection(db,'itemCollection'),where('category','==',id))
+            : collection(db,'itemCollection');
+
         getDocs(q)
         .then((result) => {
-            const lista = result.docs.map(product => {
+            const list = result.docs.map(product => {
                 return {
                     id: product.id,
                     ...product.data()
                 }
             })
-            setProductList(lista);
+            setProductList(list);
         })
         .catch((err) => console.log(err))
         .finally(() => setLoading(false))
@@ -43,8 +43,8 @@ export default function ItemListContainer({greeting}) {
     return(
         <>
             {loading 
-            ? <BeatLoader loading={loading} cssOverride={override} size={15} color='#36D7B7'/>
-            : <ItemList productList={productList}/>
+                ? <BeatLoader loading={loading} cssOverride={override} size={15} color='#36D7B7'/>
+                : <ItemList productList={productList}/>
             }      
         </>
     ); 
