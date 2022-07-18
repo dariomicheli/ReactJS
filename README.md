@@ -9,3 +9,7 @@ Este proyecto esta enfocado en un e-commerce de calzado femenino.
 ## Librerias utilizadas
 
 Se utilizó la libreria [Material-UI](https://mui.com/) para los iconos y [React Spinners](https://www.npmjs.com/package/react-spinners) para el spinner.
+
+## Diseño de la App
+
+![Diseño app](https://addons.prestashop.com/1446966-pbig/stark-mobile-app-react-native-app-for-android-ios.jpg)
