@@ -20,6 +20,7 @@ export default function ItemListContainer({greeting}) {
     }
 
     useEffect(()=>{
+        setLoading(true);
         const itemCollection = collection(db,'itemCollection');
         let q;
         id

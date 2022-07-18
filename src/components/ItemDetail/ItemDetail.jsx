@@ -26,7 +26,7 @@ function ItemDetail({product}) {
                 <p>Stock disponible: {stock}</p>
                 {
                     cart 
-                    ? <Link to="/cart" className="detail-btn">Finalizar compra</Link>
+                    ? <Link to="/cart" className="detail-btn">Ir al Carrito</Link>
                     : <ItemCount stock={stock} initial={1} onAdd={onAdd}/>
                 }                
             </div>        
