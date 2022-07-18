@@ -33,15 +33,14 @@
 .detail-btn{
     display: block;
     background-color: var(--menuItems-bg-color);
-    width: 40%;
+    width: 90%;
     margin: auto;
     text-align: center;
     line-height: 40px;
-    border-radius: 10px;
     text-decoration: none;
     color: #fff;
 }
 
 .detail-btn:hover{
-    font-weight: 900;
+    font-weight: bolder;
 }

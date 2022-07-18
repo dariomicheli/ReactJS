@@ -11,7 +11,7 @@
 
 .itemAmount{
     background-color: #fff;
-    width: 90%;
+    width: 40%;
     display: flex;
     align-items: center;
     justify-content: space-between;
@@ -36,7 +36,8 @@
 
 .itemContainer-btn{
     width: 90%;
-    height: 25px;
+    height: 40px;
+    font-size: 16px;
     background-color: #fff;
     border: 1px solid blue;
     color: blue;
@@ -54,6 +55,6 @@
 }
 
 .itemContainer-btn:hover, .itemBtn:hover{
-    color: red;
+    font-weight: bolder;
     cursor: pointer;
 }

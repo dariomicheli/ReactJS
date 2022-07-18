@@ -1,0 +1,51 @@
+.cartTotal-container{
+    background-color: #fff;
+    width: 30%;
+    height: 310px;
+    margin: 10px 0;
+    border-radius: 8px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+}
+
+.cartTotal-btns, .cartTotal-amount{
+    padding: 0 15px;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.cartTotal-subtotal, .cartTotal-total{
+    display: flex;
+    justify-content: space-between;
+}
+
+.cartTotal-total{
+    font-weight: 600;
+    font-size: 20px;
+}
+
+.cartTotal-btnFinalizarCompra, .cartTotal-btnContinuarComprando{
+    display: block;
+    cursor: pointer;
+    height: 40px;
+    font-size: 16px;
+    text-decoration: none;
+    text-align: center;
+    line-height: 40px;
+}
+
+.cartTotal-btnFinalizarCompra:hover, .cartTotal-btnContinuarComprando:hover{
+    font-weight:bolder;
+}
+
+.cartTotal-btnFinalizarCompra{
+    background-color: var( --menuItems-bg-color);
+    color: #fff;
+}
+
+.cartTotal-btnContinuarComprando{
+    border: 1px solid var( --menuItems-bg-color);
+    color: var( --menuItems-bg-color);
+}

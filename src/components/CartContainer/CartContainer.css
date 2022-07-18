@@ -1,0 +1,11 @@
+.cart-container{
+    display: flex;
+    gap: 10px;
+}
+
+.cart-empty{
+    margin: 15px 0;
+    display: flex;  
+    flex-direction: column;
+    gap: 15px;
+}

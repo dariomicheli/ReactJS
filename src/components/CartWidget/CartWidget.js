@@ -7,13 +7,17 @@ import {CartContext} from '../../context/CartContext';
 export default function CartWidget() {
 
     const {amountCartProducts} = useContext(CartContext);
+    const qty=amountCartProducts();
 
     return (
         <div className='shoppingCart'>
             <Link to='/cart'>
                 <ShoppingCartIcon/>
-            </Link> 
-            <span>{amountCartProducts()}</span> 
+            </Link>
+            {
+                (qty > 0) && <span>{qty}</span> 
+            } 
+            
         </div>
     );
 }
