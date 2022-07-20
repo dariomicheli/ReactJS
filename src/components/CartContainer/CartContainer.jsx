@@ -1,34 +1,32 @@
-import React, {useContext} from "react";
+import React, { useContext } from "react";
 import "./CartContainer.css";
-import CartList from '../CartList/CartList';
-import CartTotal from '../CartTotal/CartTotal';
-import {CartContext} from '../../context/CartContext';
-import {Link} from 'react-router-dom';
+import CartList from "../CartList/CartList";
+import CartTotal from "../CartTotal/CartTotal";
+import { CartContext } from "../../context/CartContext";
+import { Link } from "react-router-dom";
 
 const CartContainer = () => {
-    const {amountCartProducts} = useContext(CartContext);
-    const qty=amountCartProducts();
+    const { quantity } = useContext(CartContext);
 
     return (
-    <>
-        <h2 className='cart-title'>Mi Carrito</h2>
-        {
-            (qty > 0) 
-            ? (
-                <div className='cart-container'>
+        <>
+            <h2 className="cart-title">Mi Carrito</h2>
+            {quantity > 0 ? (
+                <div className="cart-container">
                     <CartList />
                     <CartTotal />
                 </div>
-            )
-            : (
-                <div className='cart-empty'>
+            ) : (
+                <div className="cart-empty">
                     <h3>Su carrito está vacio</h3>
-                    <p>Para seguir comprando, navegar por las categorías en el sitio, o haga click <Link to="/">aca</Link>.</p>
+                    <p>
+                        Para seguir comprando, navegar por las categorías en el sitio, o
+                        haga click <Link to="/">aca</Link>.
+                    </p>
                 </div>
-            )
-        }
-        
-    </>
-)};
+            )}
+        </>
+    );
+};
 
 export default CartContainer;

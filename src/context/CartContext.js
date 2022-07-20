@@ -1,10 +1,19 @@
-import React, { useState, createContext} from 'react';
+import React, { useState, createContext, useEffect} from 'react';
 
 export const CartContext = createContext();
 
 const CartProvider = ({ children }) => {
 
-    const [cartProducts, setCartProducts] = useState([]);   
+    const [cartProducts, setCartProducts] = useState([]);
+    const [quantity, setQuantity] = useState(0);
+    const [total, setTotal] = useState(0)
+    
+    useEffect(() => {
+        setQuantity(amountCartProducts);
+        setTotal(totalPriceCart);
+        // eslint-disable-next-line react-hooks/exhaustive-deps
+    }, [cartProducts])
+    
     
     const addItem = (item,quantity) => {
         if (isInCart(item.id)) {
@@ -43,7 +52,7 @@ const CartProvider = ({ children }) => {
     }
 
     return (
-        <CartContext.Provider value={{cartProducts,addItem,removeItem,clear,amountCartProducts,totalPriceCart}}>
+        <CartContext.Provider value={{cartProducts,addItem,removeItem,clear,quantity,total}}>
             {children}
         </CartContext.Provider>
     )

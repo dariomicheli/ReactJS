@@ -4,8 +4,9 @@ import {Link} from 'react-router-dom';
 import {CartContext} from '../../context/CartContext';
 
 const CartTotal = () => {
-    const {totalPriceCart} = useContext(CartContext);
-    const total=totalPriceCart();
+
+    const {total} = useContext(CartContext);
+
     return(
         <div className='cartTotal-container'>
             <div className='cartTotal-amount'>
@@ -19,7 +20,7 @@ const CartTotal = () => {
                 </div>
             </div>
             <div className='cartTotal-btns'>
-                <Link to='' className='cartTotal-btnFinalizarCompra'>Finalizar Compra</Link>
+                <Link to='/checkout' className='cartTotal-btnFinalizarCompra'>Finalizar Compra</Link>
                 <Link to='/' className='cartTotal-btnContinuarComprando'>Continuar Comprando</Link>
             </div>
         </div>

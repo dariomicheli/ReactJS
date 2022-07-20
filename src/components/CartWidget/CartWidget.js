@@ -6,8 +6,7 @@ import {CartContext} from '../../context/CartContext';
 
 export default function CartWidget() {
 
-    const {amountCartProducts} = useContext(CartContext);
-    const qty=amountCartProducts();
+    const {quantity} = useContext(CartContext);
 
     return (
         <div className='shoppingCart'>
@@ -15,7 +14,7 @@ export default function CartWidget() {
                 <ShoppingCartIcon/>
             </Link>
             {
-                (qty > 0) && <span>{qty}</span> 
+                (quantity > 0) && <span>{quantity}</span> 
             } 
             
         </div>
