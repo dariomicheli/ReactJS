@@ -9,6 +9,7 @@ import CartProvider from './context/CartContext';
 import Checkout from './components/Checkout/Checkout';
 
 
+
 function App() {
   return (
     <BrowserRouter>
@@ -20,7 +21,7 @@ function App() {
             <Route path='/categoria/:id' element={<ItemListContainer greeting='Hola Mundo!'/>} />
             <Route path='/item/:id' element={<ItemDetailContainer />} /> 
             <Route path='/cart' element={<CartContainer />} />
-            <Route path='/checkout' element={<Checkout />} />
+            <Route path='/checkout' element={<Checkout /> } />
           </Routes>
         </main>
       </CartProvider> 

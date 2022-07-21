@@ -2,10 +2,13 @@ import './Checkout.css';
 import { useState, useContext } from 'react';
 import {CartContext} from '../../context/CartContext';
 import { db } from "../../firebase/firebase";
-import { collection, addDoc, serverTimestamp } from 'firebase/firestore';
+import { collection, addDoc, serverTimestamp, doc, updateDoc } from 'firebase/firestore';
+import CheckoutForm from '../CheckoutForm/CheckoutForm';
+import CheckoutResume from '../CheckoutResume/CheckoutResume';
 
 const Checkout = () => {
-    const {cartProducts,total} = useContext(CartContext);
+
+    const {cartProducts,total,clear} = useContext(CartContext);
     const [orderId, setOrderId] = useState('');
     const [user, setUser] = useState({
         email: '',
@@ -14,14 +17,12 @@ const Checkout = () => {
         phone: ''
     });
 
-    const handleChange = ({target: {name,value}}) =>{
+    const handleChange = ({name,value}) =>
         setUser({...user, [name]:value});
-    }
 
-    const handleSubmit = e => {
+    const handleSubmit = e => 
         e.preventDefault();
-    }
-
+        
     const sendOrder = () => {
         const ordersCollection = collection (db, 'orders');
         addDoc(ordersCollection,{
@@ -30,32 +31,25 @@ const Checkout = () => {
             date: serverTimestamp(),
             total
         })
-        .then(({id}) => setOrderId(id));
+        .then(({id}) => setOrderId(id))
+        .then(() => updateStock())
+        .catch( err => console.log(err))
+        .finally(() => clear())
+    }
+
+    const updateStock = () => {
+        cartProducts.forEach(product => {
+            const productDoc = doc(db,"itemCollection",product.id);
+            updateDoc(productDoc, {stock: product.stock - product.quantity});
+        });
     }
 
     return (
         <>
-            <h2>Finalizar la Compra</h2>
-
-            <div>
-                <h3>Datos Personales</h3>
-
-                <form onSubmit={handleSubmit}>
-                    <label htmlFor="email">Correo</label>
-                    <input type="email" name="email" id="email" required onChange={handleChange}/>
-
-                    <label htmlFor="name">Nombre</label>
-                    <input type="text" name="name" id="name" required onChange={handleChange}/>
-
-                    <label htmlFor="surname">Apellido</label>
-                    <input type="text" name="surname" id="surname" required onChange={handleChange}/>
-
-                    <label htmlFor="phone">Teléfono / Móvil</label>
-                    <input type="tel" name="phone" id="phone" required onChange={handleChange}/>
-
-                    <input type="submit" value="Continuar" onClick={sendOrder}/>
-                </form>
-            </div>
+            {orderId===''
+                ? <CheckoutForm handleSubmit={handleSubmit} handleChange={handleChange} sendOrder={sendOrder} /> 
+                : <CheckoutResume orderId={orderId} />
+            }
         </>
     )
 }
