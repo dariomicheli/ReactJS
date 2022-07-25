@@ -1,0 +1,31 @@
+.form-container{
+    width: 50%;
+    margin-top: 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.form-container input{
+    font-size: 18px;
+}
+
+.form-btn{
+    border: none;
+    margin-top: 20px;
+    display: block;
+    cursor: pointer;
+    height: 40px;
+    font-size: 16px;
+    text-decoration: none;
+    text-align: center;
+    line-height: 40px;
+    background-color: var( --menuItems-bg-color);
+    color: #fff;
+}
+
+.form-btn:hover{
+    font-weight:bolder;
+}
+
+

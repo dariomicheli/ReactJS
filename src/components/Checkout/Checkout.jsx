@@ -20,8 +20,10 @@ const Checkout = () => {
     const handleChange = ({name,value}) =>
         setUser({...user, [name]:value});
 
-    const handleSubmit = e => 
+    const handleSubmit = e => {
         e.preventDefault();
+        sendOrder();
+    }
         
     const sendOrder = () => {
         const ordersCollection = collection (db, 'orders');

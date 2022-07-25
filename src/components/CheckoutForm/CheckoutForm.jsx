@@ -1,10 +1,12 @@
+import './CheckoutForm.css';
 
 const CheckoutForm = ({handleSubmit,handleChange,sendOrder}) => {
     return (
         <>
             <h2>Finalizar la Compra</h2>
             <h3>Datos Personales</h3>
-            <form 
+            <form
+                className='form-container' 
                 onSubmit={handleSubmit}
                 onChange={({target}) => handleChange(target)}
             >
@@ -20,7 +22,7 @@ const CheckoutForm = ({handleSubmit,handleChange,sendOrder}) => {
                 <label htmlFor="phone">Teléfono / Móvil</label>
                 <input type="tel" name="phone" id="phone" required />
 
-                <input type="submit" value="Comprar" onClick={sendOrder}/>
+                <input className='form-btn' type="submit" value="Comprar" />
             </form>
         </>
     )
