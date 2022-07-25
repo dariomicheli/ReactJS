@@ -27,7 +27,7 @@ export default function ItemListContainer({greeting}) {
             : collection(db,'itemCollection');
 
         getDocs(q)
-        .then((result) => {
+        .then((result) => {          
             const list = result.docs.map(product => {
                 return {
                     id: product.id,
@@ -44,7 +44,9 @@ export default function ItemListContainer({greeting}) {
         <>
             {loading 
                 ? <BeatLoader loading={loading} cssOverride={override} size={15} color='#36D7B7'/>
-                : <ItemList productList={productList}/>
+                : productList.length > 0 
+                    ? <ItemList productList={productList}/>
+                    : <h1>Error</h1>
             }      
         </>
     ); 
