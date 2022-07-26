@@ -22,7 +22,9 @@ function ItemDetailContainer() {
         setLoading(true);
         const refDoc = doc(collection(db,'itemCollection'),id); 
         getDoc(refDoc)
-        .then(result => setProduct({...result.data(),id: result.id}))
+        .then(result => {
+            result.data() !== undefined && setProduct({...result.data(),id: result.id})
+        })
         .catch((err) => console.log(err))
         .finally(() => setLoading(false))
     },[id]);
@@ -31,7 +33,9 @@ function ItemDetailContainer() {
         <>
             {loading 
                 ? <BeatLoader loading={loading} cssOverride={override} size={15} color='#36D7B7'/>
-                : <ItemDetail product={product} />
+                : Object.keys(product).length > 0 
+                    ? <ItemDetail product={product} />
+                    : <h1>Error</h1>
             }     
         </>
     );
