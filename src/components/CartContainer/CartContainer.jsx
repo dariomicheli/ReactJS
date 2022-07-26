@@ -6,12 +6,12 @@ import { CartContext } from "../../context/CartContext";
 import { Link } from "react-router-dom";
 
 const CartContainer = () => {
-    const { quantity } = useContext(CartContext);
+    const { cartProducts } = useContext(CartContext);
 
     return (
         <>
             <h2 className="cart-title">Mi Carrito</h2>
-            {quantity > 0 ? (
+            {cartProducts.length > 0 ? (
                 <div className="cart-container">
                     <CartList />
                     <CartTotal />

@@ -7,6 +7,8 @@ import {BrowserRouter,Routes,Route} from 'react-router-dom';
 import CartContainer from './components/CartContainer/CartContainer';
 import CartProvider from './context/CartContext';
 import Checkout from './components/Checkout/Checkout';
+import ProtectedRoute from './components/ProtectedRoute/ProtectedRoute';
+import NotFound from './components/NotFound/NotFound';
 
 
 
@@ -21,8 +23,8 @@ function App() {
             <Route path='/categoria/:id' element={<ItemListContainer greeting='Hola Mundo!'/>} />
             <Route path='/item/:id' element={<ItemDetailContainer />} /> 
             <Route path='/cart' element={<CartContainer />} />
-            <Route path='/checkout' element={<Checkout /> } />
-            <Route path='/*' element={<h1>404</h1>} />
+            <Route path='/checkout' element={<ProtectedRoute><Checkout /></ProtectedRoute>} />
+            <Route path='*' element={<NotFound />} />
           </Routes>
         </main>
       </CartProvider> 
