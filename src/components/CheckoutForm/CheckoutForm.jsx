@@ -1,6 +1,6 @@
 import './CheckoutForm.css';
 
-const CheckoutForm = ({handleSubmit,handleChange,sendOrder}) => {
+const CheckoutForm = ({handleSubmit,handleChange}) => {
     return (
         <>
             <h2>Finalizar la Compra</h2>

@@ -1,12 +1,12 @@
 import { useState, createContext, useEffect} from 'react';
-import useLocalStorage from '../hooks/useLocalStorage';
+import useSessionStorage from '../hooks/useSessionStorage';
 
 export const CartContext = createContext();
 
 const CartProvider = ({ children }) => {
 
     /* const [cartProducts, setCartProducts] = useState([]); */
-    const [cartProducts, setCartProducts] = useLocalStorage('cartProducts',[]);
+    const [cartProducts, setCartProducts] = useSessionStorage('cartProducts',[]);
     const [quantity, setQuantity] = useState(0);
     const [total, setTotal] = useState(0)
     

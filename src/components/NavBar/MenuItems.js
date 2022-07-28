@@ -2,11 +2,12 @@ import './MenuItems.css';
 import {NavLink} from 'react-router-dom';
 import { db } from "../../firebase/firebase";
 import { getDocs, collection } from "firebase/firestore";
-import { useState, useEffect } from 'react';
+import { useEffect } from 'react';
+import useSessionStorage from '../../hooks/useSessionStorage';
 
 export default function MenuItems() {
 
-    const [items, setItems] = useState([])
+    const [items, setItems] = useSessionStorage('items',[])
 
     useEffect(() => {
         const categoriesCollection = collection(db,'categories');
@@ -21,7 +22,7 @@ export default function MenuItems() {
             setItems(list.sort(sortArray));
         })
         .catch(err => console.log(err))
-    },[])
+    })
 
     const sortArray = (x,y) => {
         if (x.description < y.description) return -1;

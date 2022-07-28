@@ -5,6 +5,7 @@ import { db } from "../../firebase/firebase";
 import { collection, addDoc, serverTimestamp, doc, updateDoc } from 'firebase/firestore';
 import CheckoutForm from '../CheckoutForm/CheckoutForm';
 import CheckoutResume from '../CheckoutResume/CheckoutResume';
+import NotFound from '../NotFound/NotFound';
 
 const Checkout = () => {
 
@@ -46,10 +47,13 @@ const Checkout = () => {
         });
     }
 
+
+    if(cartProducts.length === 0 && orderId === '') return <NotFound />
+
     return (
         <>
             {orderId===''
-                ? <CheckoutForm handleSubmit={handleSubmit} handleChange={handleChange} sendOrder={sendOrder} /> 
+                ? <CheckoutForm handleSubmit={handleSubmit} handleChange={handleChange} /> 
                 : <CheckoutResume orderId={orderId} />
             }
         </>
