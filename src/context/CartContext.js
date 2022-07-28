@@ -5,7 +5,6 @@ export const CartContext = createContext();
 
 const CartProvider = ({ children }) => {
 
-    /* const [cartProducts, setCartProducts] = useState([]); */
     const [cartProducts, setCartProducts] = useSessionStorage('cartProducts',[]);
     const [quantity, setQuantity] = useState(0);
     const [total, setTotal] = useState(0)

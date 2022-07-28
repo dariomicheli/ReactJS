@@ -22,7 +22,8 @@ export default function MenuItems() {
             setItems(list.sort(sortArray));
         })
         .catch(err => console.log(err))
-    })
+    // eslint-disable-next-line
+    },[])
 
     const sortArray = (x,y) => {
         if (x.description < y.description) return -1;

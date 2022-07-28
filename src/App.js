@@ -6,8 +6,11 @@ import ItemDetailContainer from './components/ItemDetailContainer/ItemDetailCont
 import {BrowserRouter,Routes,Route} from 'react-router-dom';
 import CartContainer from './components/CartContainer/CartContainer';
 import CartProvider from './context/CartContext';
+import AuthProvider from './context/AuthContext';
 import Checkout from './components/Checkout/Checkout';
 import NotFound from './components/NotFound/NotFound';
+import Login from './components/Login/Login';
+import Register from './components/Register/Register';
 
 
 
@@ -15,17 +18,21 @@ function App() {
   return (
     <BrowserRouter>
       <CartProvider>
-        <NavBar />
-        <main>
-          <Routes>
-            <Route path='/' element={<ItemListContainer greeting='Hola Mundo!'/>} />
-            <Route path='/categoria/:id' element={<ItemListContainer greeting='Hola Mundo!'/>} />
-            <Route path='/item/:id' element={<ItemDetailContainer />} /> 
-            <Route path='/cart' element={<CartContainer />} />
-            <Route path='/checkout' element={<Checkout />} />
-            <Route path='*' element={<NotFound />} />
-          </Routes>
-        </main>
+        <AuthProvider>
+          <NavBar />
+          <main>
+            <Routes>
+              <Route path='/' element={<ItemListContainer greeting='Hola Mundo!'/>} />
+              <Route path='/categoria/:id' element={<ItemListContainer greeting='Hola Mundo!'/>} />
+              <Route path='/item/:id' element={<ItemDetailContainer />} /> 
+              <Route path='/cart' element={<CartContainer />} />
+              <Route path='/checkout' element={<Checkout />} />
+              <Route path='/login' element={<Login />} />
+              <Route path='/register' element={<Register />} />
+              <Route path='*' element={<NotFound />} />
+            </Routes>
+          </main>
+        </AuthProvider>
       </CartProvider> 
       <footer>
         <Footer />
