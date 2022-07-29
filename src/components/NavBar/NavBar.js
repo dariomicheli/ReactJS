@@ -3,8 +3,15 @@ import MenuItems from './MenuItems';
 import logo from '../../assets/logo.png';
 import CartWidget from '../CartWidget/CartWidget';
 import {Link} from 'react-router-dom';
+import { useAuth } from '../../context/AuthContext';
 
 const NavBar = () =>{
+    const {logout,user} = useAuth();
+
+    const handleLogout = async () =>{
+        await logout();
+    }
+
     return(
         <header>
             <div className="menu">
@@ -19,6 +26,10 @@ const NavBar = () =>{
                     </div>
                     <MenuItems />
                     <CartWidget />
+                    <div>
+                        <span>{!user ? '' : user.email}</span>
+                        <button onClick={handleLogout}>Logout</button>
+                    </div>
                 </div>
             </div>
         </header>

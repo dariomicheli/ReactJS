@@ -11,6 +11,7 @@ import Checkout from './components/Checkout/Checkout';
 import NotFound from './components/NotFound/NotFound';
 import Login from './components/Login/Login';
 import Register from './components/Register/Register';
+import ProtectedRoute from './components/ProtectedRoute/ProtectedRoute';
 
 
 
@@ -26,7 +27,12 @@ function App() {
               <Route path='/categoria/:id' element={<ItemListContainer greeting='Hola Mundo!'/>} />
               <Route path='/item/:id' element={<ItemDetailContainer />} /> 
               <Route path='/cart' element={<CartContainer />} />
-              <Route path='/checkout' element={<Checkout />} />
+              <Route path='/checkout' element={
+                  <ProtectedRoute>
+                    <Checkout />
+                  </ProtectedRoute>
+                } 
+              />
               <Route path='/login' element={<Login />} />
               <Route path='/register' element={<Register />} />
               <Route path='*' element={<NotFound />} />
