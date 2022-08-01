@@ -10,7 +10,7 @@ const Login = () => {
         password:''
     });
     const [error, setError] = useState(); 
-    const {login}= useAuth();
+    const {login,loginWithGoogle,resetPassword}= useAuth();
     const navigate = useNavigate();
 
     const handleChange = ({name, value}) =>{
@@ -43,6 +43,25 @@ const Login = () => {
         }     
     }
 
+    const handleGoogleSignIn = async () =>{
+        try {
+            await loginWithGoogle();
+            navigate('/'); 
+        } catch (error) {
+            console.log(error.message);
+        }
+    }
+
+    const handleResetPassword = async () =>{
+        if(!user.email) return setError("Por favor ingresa tu email");
+
+        try {
+            await resetPassword(user.email);
+        } catch (error) {   
+            console.log(error.message);
+        }
+    }
+
     return (
         <div>
             {error && <p>{error}</p>}
@@ -58,7 +77,9 @@ const Login = () => {
                 <input type="password" name="password"  id="password" placeholder='******'/>
 
                 <button>Login</button>
+                <a href="#!" onClick={handleResetPassword}>Forgot Password</a>
             </form>
+            <button onClick={handleGoogleSignIn}>Login with google</button>
         </div>
     )
 }
