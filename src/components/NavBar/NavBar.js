@@ -4,17 +4,17 @@ import logo from '../../assets/logo.png';
 import CartWidget from '../CartWidget/CartWidget';
 import {Link} from 'react-router-dom';
 import { useAuth } from '../../context/AuthContext';
+import AvatarUser from '../AvatarUser/AvatarUser';
+import Stack from '@mui/material/Stack';
+import Button from '@mui/material/Button';
+import { useNavigate } from "react-router-dom";
 
 const NavBar = () =>{
-    const {logout,user} = useAuth();
+    const {user} = useAuth();
+    const navigate = useNavigate();
 
-    const handleLogout = async () =>{
-        try {
-            await logout();
-        } catch (error) {
-            console.log(error);
-        }
-        
+    const handleBtnAcceder = () =>{
+        navigate('/login');
     }
 
     return(
@@ -30,11 +30,13 @@ const NavBar = () =>{
                         </Link>
                     </div>
                     <MenuItems />
-                    <CartWidget />
-                    <div>
-                        <span>{!user ? '' : user.email}</span>
-                        <button onClick={handleLogout}>Logout</button>
-                    </div>
+                    <Stack direction="row" spacing={2} alignItems="center">
+                        <CartWidget />
+                        {!user
+                            ? <Button variant="contained" onClick={handleBtnAcceder}>Acceder</Button>
+                            : <AvatarUser />
+                        }
+                    </Stack>                 
                 </div>
             </div>
         </header>
