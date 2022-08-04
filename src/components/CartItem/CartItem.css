@@ -21,14 +21,3 @@
     width: 100%;
     object-fit: scale-down;
 }
-
-.cartItem-btnDelete{
-    cursor: pointer;
-    border: none;
-    background-color: inherit;
-    color: var(--menuItems-bg-color);
-}
-
-.cartItem-btnDelete:hover{
-    text-decoration: underline;
-}

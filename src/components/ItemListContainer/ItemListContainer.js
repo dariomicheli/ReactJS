@@ -1,23 +1,16 @@
-import { useEffect, useState, CSSProperties } from 'react';
+import { useEffect, useState } from 'react';
 import ItemList from '../ItemList/ItemList';
-import BeatLoader from "react-spinners/BeatLoader";
-import './ItemListContainer.css';
+import Progress from '../Progress/Progress';
 import {useParams} from 'react-router-dom';
 import { db } from "../../firebase/firebase";
 import { getDocs, collection, query, where } from "firebase/firestore";
+
 
 export default function ItemListContainer({greeting}) {
     
     const[productList,setProductList]=useState([]);
     const[loading,setLoading]=useState(true);
     const {id} = useParams();
-
-    //css para spinner
-    const override: CSSProperties = {
-        display:"block",
-        margin: "0 auto",
-        textAlign:"center"
-    }
 
     useEffect(()=>{
         setLoading(true);
@@ -43,7 +36,7 @@ export default function ItemListContainer({greeting}) {
     return(
         <>
             {loading 
-                ? <BeatLoader loading={loading} cssOverride={override} size={15} color='#36D7B7'/>
+                ? <Progress />
                 : productList.length > 0 
                     ? <ItemList productList={productList}/>
                     : <h1>Error</h1>

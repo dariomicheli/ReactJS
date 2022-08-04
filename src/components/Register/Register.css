@@ -1,0 +1,24 @@
+.register-container{
+    background-color: #fff;
+    display: flex;
+    flex-direction: column;
+    width: 50%;
+    margin: auto;
+    gap: 20px;
+    padding: 30px 10px;
+    border-radius: 10px;
+    justify-content: center;
+    align-items: center;
+}
+
+.register-container a{
+    color:#1976d2;
+}
+
+
+.registerForm{
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    align-items: center;
+}

@@ -1,6 +1,10 @@
 import {useState} from 'react';
 import { useAuth } from '../../context/AuthContext';
-import { useNavigate } from "react-router-dom";
+import { useNavigate,Link } from "react-router-dom";
+import Alert from '@mui/material/Alert';
+import './Register.css';
+import TextField from '@mui/material/TextField';
+import Button from '@mui/material/Button';
 
 
 const Register = () => {
@@ -44,21 +48,38 @@ const Register = () => {
     }
 
     return (
-        <div>
-            {error && <p>{error}</p>}
+        <div className="register-container">
+            <h2>Registrate</h2>
+            <p>Por favor completa los siguientes datos</p>
+            {error && <Alert severity="error" variant="outlined">{error}</Alert>}
             <form 
                 onChange={({target}) => handleChange(target)}
                 onSubmit={handleSubmit}
+                className="registerForm"
             >
+                <TextField
+                    fullWidth 
+                    required
+                    id="outlined-required"
+                    label="Email"
+                    type="email"
+                    name="email"
+                />
 
-                <label htmlFor="email">Email</label>
-                <input type="email" name="email" />
+                <TextField
+                    fullWidth 
+                    required
+                    id="outlined-password-input"
+                    label="Contraseña"
+                    type="password"
+                    name="password"
+                    autoComplete="current-password"
+                    helperText="La contraseña debe tener un minimo de 6 caracteres"
+                />
 
-                <label htmlFor="password">Password</label>
-                <input type="password" name="password"  id="password" placeholder='******'/>
-
-                <button>Registrar</button>
+                <Button variant="contained" type="submit">Registrarme</Button>
             </form>
+            <p>¿Ya tenes cuenta? <Link to="/login">inicia sesión</Link></p>
         </div>
     )
 }

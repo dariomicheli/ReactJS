@@ -1,7 +1,12 @@
 import {useState} from 'react';
 import { useAuth } from '../../context/AuthContext';
-import { useNavigate } from "react-router-dom";
-
+import { useNavigate,Link } from "react-router-dom";
+import Alert from '@mui/material/Alert';
+import TextField from '@mui/material/TextField';
+import Button from '@mui/material/Button';
+import GoogleIcon from '@mui/icons-material/Google';
+import './Login.css';
+import Divider from '@mui/material/Divider';
 
 const Login = () => {
 
@@ -63,23 +68,41 @@ const Login = () => {
     }
 
     return (
-        <div>
-            {error && <p>{error}</p>}
+        <div className="login-container">
+            <h2>Acceder</h2>
+            {error && <Alert variant="outlined" severity="error">{error}</Alert>}
             <form 
                 onChange={({target}) => handleChange(target)}
                 onSubmit={handleSubmit}
+                className="loginForm"
             >
 
-                <label htmlFor="email">Email</label>
-                <input type="email" name="email" />
+                <TextField
+                    fullWidth 
+                    required
+                    id="outlined-required"
+                    label="Email"
+                    type="email"
+                    name="email"
+                />
 
-                <label htmlFor="password">Password</label>
-                <input type="password" name="password"  id="password" placeholder='******'/>
-
-                <button>Login</button>
-                <a href="#!" onClick={handleResetPassword}>Forgot Password</a>
+                <TextField
+                    fullWidth 
+                    required
+                    id="outlined-password-input"
+                    label="Contraseña"
+                    type="password"
+                    name="password"
+                    autoComplete="current-password"
+                    helperText="La contraseña debe tener un minimo de 6 caracteres"
+                />
+                
+                <Button variant="contained" type="submit">Ingresar</Button>  
+                <Button onClick={handleResetPassword}>¿Olvidaste tu contraseña?</Button>
             </form>
-            <button onClick={handleGoogleSignIn}>Login with google</button>
+            <Divider />
+            <Button variant="outlined" startIcon={<GoogleIcon />} onClick={handleGoogleSignIn}>Ingresar con google</Button>
+            <p>¿No tenes cuenta? <Link to="/register">registrate acá</Link></p>
         </div>
     )
 }
