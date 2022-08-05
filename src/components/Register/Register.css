@@ -19,6 +19,7 @@
 .registerForm{
     display: flex;
     flex-direction: column;
+    width: 70%;
     gap: 20px;
     align-items: center;
 }

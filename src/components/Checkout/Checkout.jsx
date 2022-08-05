@@ -12,6 +12,7 @@ import { useAuth } from '../../context/AuthContext';
 
 const Checkout = () => {
     const {user}= useAuth();
+    const [loading,setLoading] = useState(false);
     const {cartProducts,total,clear} = useContext(CartContext);
     const [orderId, setOrderId] = useState('');
     const [buyer, setBuyer] = useState({
@@ -25,6 +26,7 @@ const Checkout = () => {
         setBuyer({...buyer, [name]:value});
 
     const handleSubmit = e => {
+        setLoading(true);
         e.preventDefault();
         sendOrder();
     }
@@ -39,6 +41,7 @@ const Checkout = () => {
         })
         .then(({id}) => setOrderId(id))
         .then(() => updateStock())
+        .then(() => setLoading(false))
         .catch( err => console.log(err))
         .finally(() => clear())
     }
@@ -60,7 +63,7 @@ const Checkout = () => {
                     <>
                         <h2>Finalizar la Compra</h2> 
                         <Stack direction="row" spacing={2} justifyContent="space-between">
-                            <CheckoutForm handleSubmit={handleSubmit} handleChange={handleChange} /> 
+                            <CheckoutForm handleSubmit={handleSubmit} handleChange={handleChange} loading={loading}/> 
                             <CartResume />
                         </Stack>
                     </>

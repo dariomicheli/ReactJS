@@ -1,18 +1,47 @@
-import React, {useState, useContext}  from 'react';
+import React,{useContext,useState}  from 'react';
+import {useNavigate} from 'react-router-dom';
 import './ItemDetail.css';
 import ItemCount from "../ItemCount/ItemCount";
-import {Link} from 'react-router-dom';
 import {CartContext} from '../../context/CartContext';
+import Snackbar from '@mui/material/Snackbar';
+import MuiAlert from '@mui/material/Alert';
+import Button from '@mui/material/Button';
+
+const Alert = React.forwardRef(function Alert(props, ref) {
+    return <MuiAlert elevation={6} ref={ref} variant="filled" {...props} />;
+});
 
 function ItemDetail({product}) {
     const {name,price,description,stock,pictureUrl} = product;
-    const [cart,setCart] = useState(false);
+    const navigate=useNavigate();
     const {addItem} = useContext(CartContext);
+    const [cart,setCart] = useState(false);
+    const [state, setState] = useState({
+        open: false,
+        vertical: 'top',
+        horizontal: 'center',
+      });
+
+    const {open,vertical,horizontal} = state;
 
     const onAdd = (amount) => {
-        setCart(!cart);
         addItem(product,amount);
+        setState({...state,open:true});
+        setCart(!cart);
     }
+
+    const buyItems = (amount) => {
+        addItem(product,amount);
+        navigate('/cart');
+    }
+
+    const handleClose = (event, reason) => {
+        if (reason === 'clickaway') {
+            return;
+        }
+    
+        setState({...state,open:false});
+    };
     
     return (
         <div className='detail-container'>
@@ -23,13 +52,26 @@ function ItemDetail({product}) {
                 <h2>{name}</h2>
                 <span>${price}</span>
                 <p>{description}</p>
-                <p>Stock disponible: {stock}</p>
-                {
-                    cart 
-                    ? <Link to="/cart" className="detail-btn">Ir al Carrito</Link>
-                    : <ItemCount stock={stock} initial={1} onAdd={onAdd}/>
-                }                
-            </div>        
+                {cart 
+                    ? (
+                        <>
+                            <Button variant="contained" color="success"onClick={()=> navigate('/cart')}>Ir al Carrito</Button>
+                            <Button variant="outlined" onClick={()=> navigate('/')}>Continuar comprando</Button>
+                        </>
+                    )
+                    : <ItemCount stock={stock} onAdd={onAdd} buyItems={buyItems}/>}              
+            </div>
+            <Snackbar 
+            anchorOrigin={{ vertical, horizontal }}
+            open={open} 
+            autoHideDuration={4000} 
+            onClose={handleClose}
+            key={vertical + horizontal}
+            >
+                <Alert onClose={handleClose} severity="success" sx={{ width: '100%' }}>
+                    Agregado al carrito!
+                </Alert>
+            </Snackbar>        
         </div>
     );
 }

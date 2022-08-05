@@ -4,6 +4,7 @@ import {useParams} from 'react-router-dom';
 import { db } from "../../firebase/firebase";
 import { doc, getDoc, collection} from "firebase/firestore";
 import Progress from '../Progress/Progress';
+import NotFound from '../NotFound/NotFound';
 
 function ItemDetailContainer() {
 
@@ -28,7 +29,7 @@ function ItemDetailContainer() {
                 ? <Progress />
                 : Object.keys(product).length > 0 
                     ? <ItemDetail product={product} />
-                    : <h1>Error</h1>
+                    : <NotFound />
             }     
         </>
     );

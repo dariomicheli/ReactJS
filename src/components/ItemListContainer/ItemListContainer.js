@@ -4,6 +4,7 @@ import Progress from '../Progress/Progress';
 import {useParams} from 'react-router-dom';
 import { db } from "../../firebase/firebase";
 import { getDocs, collection, query, where } from "firebase/firestore";
+import NotFound from '../NotFound/NotFound';
 
 
 export default function ItemListContainer({greeting}) {
@@ -39,7 +40,7 @@ export default function ItemListContainer({greeting}) {
                 ? <Progress />
                 : productList.length > 0 
                     ? <ItemList productList={productList}/>
-                    : <h1>Error</h1>
+                    : <NotFound />
             }      
         </>
     ); 

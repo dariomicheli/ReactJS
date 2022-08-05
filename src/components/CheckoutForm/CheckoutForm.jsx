@@ -2,8 +2,9 @@ import './CheckoutForm.css';
 import TextField from '@mui/material/TextField';
 import Button from '@mui/material/Button';
 import { useAuth } from '../../context/AuthContext';
+import Progress from '../Progress/Progress';
 
-const CheckoutForm = ({handleSubmit,handleChange}) => {
+const CheckoutForm = ({handleSubmit,handleChange,loading}) => {
     
     const {user} = useAuth();
 
@@ -49,7 +50,10 @@ const CheckoutForm = ({handleSubmit,handleChange}) => {
                     name="phone"
                 />
 
-                <Button variant="contained" type="submit" color="success">Comprar</Button>
+                {loading
+                    ? <Progress />
+                    : <Button variant="contained" type="submit" color="success">Comprar</Button>
+                }
             </form>
         </>
     )

@@ -7,6 +7,7 @@ import Button from '@mui/material/Button';
 import GoogleIcon from '@mui/icons-material/Google';
 import './Login.css';
 import Divider from '@mui/material/Divider';
+import Progress from '../Progress/Progress';
 
 const Login = () => {
 
@@ -17,32 +18,40 @@ const Login = () => {
     const [error, setError] = useState(); 
     const {login,loginWithGoogle,resetPassword}= useAuth();
     const navigate = useNavigate();
+    const [loading, setLoading] = useState(false);
 
     const handleChange = ({name, value}) =>{
         setUser({...user,[name]:value});
     }
 
     const handleSubmit = async e => {
+        setLoading(true);
         e.preventDefault();
         setError('');
         try {
             await login(user.email,user.password);
+            setLoading(false);
             navigate('/checkout');
         } catch (err) {
             switch (err.code) {
                 case "auth/user-disabled":
-                    setError("El usuario ha sido deshabilitado")                    
+                    setError("El usuario ha sido deshabilitado")
+                    setLoading(false)                    
                     break;
                 case "auth/user-not-found":
-                    setError("No se ha encontrado un usuario con esta direccion de correo")                    
+                    setError("No se ha encontrado un usuario con esta direccion de correo") 
+                    setLoading(false)                   
                     break;
                 case "auth/invalid-email":
-                    setError("La dirección de correo no es válida.")                    
+                    setError("La dirección de correo no es válida.") 
+                    setLoading(false)                   
                     break;
                 case "auth/wrong-password":
-                    setError("La contraseña es incorrecta")                    
+                    setError("La contraseña es incorrecta")   
+                    setLoading(false)                 
                     break;
                 default:
+                    setLoading(false)
                     break;
             }
         }     
@@ -62,6 +71,7 @@ const Login = () => {
 
         try {
             await resetPassword(user.email);
+            setError("Se ha enviado un email a la dirección indicada");
         } catch (error) {   
             console.log(error.message);
         }
@@ -70,13 +80,14 @@ const Login = () => {
     return (
         <div className="login-container">
             <h2>Acceder</h2>
+            <p>Por favor completa los siguientes datos para acceder a tu cuenta</p>
             {error && <Alert variant="outlined" severity="error">{error}</Alert>}
             <form 
                 onChange={({target}) => handleChange(target)}
                 onSubmit={handleSubmit}
                 className="loginForm"
             >
-
+                
                 <TextField
                     fullWidth 
                     required
@@ -96,7 +107,10 @@ const Login = () => {
                     autoComplete="current-password"
                 />
                 
-                <Button variant="contained" type="submit">Ingresar</Button>  
+                {loading
+                    ? <Progress />
+                    : <Button variant="contained" type="submit">Ingresar</Button>
+                }               
                 <Button onClick={handleResetPassword}>¿Olvidaste tu contraseña?</Button>
             </form>
             <Divider />

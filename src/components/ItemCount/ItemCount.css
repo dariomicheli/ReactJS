@@ -1,60 +1,7 @@
-.itemContainer{
-    width: 80%;
-    margin: auto;
-    background-color: inherit;
-    display: flex;
-    flex-direction: column;
-    gap: 20px;
-    align-items: center;
-    justify-content: space-around;
+.stock{
+    font-weight: 300;
 }
 
-.itemAmount{
-    background-color: #fff;
-    width: 40%;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    border: 1px solid rgb(218, 218, 218);
-}
-
-.itemAmount span{
-    width: 60px;
-    text-align: center;
-    background-color: #fff;
-}
-
-.itemBtn{
-    width: 40px;
-    height: 25px;
-    border: 1px solid blue;
-    color: blue;
-    background-color: inherit;
-    cursor: pointer;
-    font-size: 20px;
-}
-
-.itemContainer-btn{
-    width: 90%;
-    height: 40px;
-    font-size: 16px;
-    background-color: #fff;
-    border: 1px solid blue;
-    color: blue;
-}
-
-.itemContainer-btn:disabled, .itemBtn:disabled{
-    background-color: rgba(239, 239, 239, 0.3);
-    color: rgba(16, 16, 16, 0.3);
-    border-color: rgba(118, 118, 118, 0.3);
-}
-
-.itemContainer-btn:disabled:hover , .itemBtn:disabled:hover{
-    color: rgba(16, 16, 16, 0.3); 
-    cursor: auto; 
-}
-
-.itemContainer-btn:hover, .itemBtn:hover{
-    font-weight: bolder;
-    cursor: pointer;
+.sinStock{
+    color: red;
 }

@@ -12,7 +12,6 @@ function Item({product}) {
           <h2 className='card-name'>{name}</h2>
           <span className='card-price'>${price}</span>
         </div>
-        {/*<Link to={`/detalle/${id}`} className='card-btn'>Ver más</Link>*/}
       </div>
     </Link>
   )

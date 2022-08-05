@@ -1,11 +1,16 @@
 import {useContext} from "react";
 import "./CartTotal.css";
-import {Link} from 'react-router-dom';
+import {useNavigate} from 'react-router-dom';
 import {CartContext} from '../../context/CartContext';
+import Button from '@mui/material/Button';
 
 const CartTotal = () => {
 
     const {total} = useContext(CartContext);
+    const navigate=useNavigate();
+
+    const handleFinalizarCompra = () => navigate('/checkout')
+    const handleContinuarCompra = () => navigate('/')
 
     return(
         <div className='cartTotal-container'>
@@ -20,8 +25,8 @@ const CartTotal = () => {
                 </div>
             </div>
             <div className='cartTotal-btns'>
-                <Link to='/checkout' className='cartTotal-btnFinalizarCompra'>Finalizar Compra</Link>
-                <Link to='/' className='cartTotal-btnContinuarComprando'>Continuar Comprando</Link>
+                <Button variant="contained" color="success" onClick={handleFinalizarCompra}>Finalizar Compra</Button>
+                <Button variant="outlined" onClick={handleContinuarCompra}>Continuar Comprando</Button>
             </div>
         </div>
     ) 
