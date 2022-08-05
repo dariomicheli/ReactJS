@@ -27,7 +27,7 @@ const Login = () => {
         setError('');
         try {
             await login(user.email,user.password);
-            navigate('/');
+            navigate('/checkout');
         } catch (err) {
             switch (err.code) {
                 case "auth/user-disabled":
@@ -51,7 +51,7 @@ const Login = () => {
     const handleGoogleSignIn = async () =>{
         try {
             await loginWithGoogle();
-            navigate('/'); 
+            navigate('/checkout'); 
         } catch (error) {
             console.log(error.message);
         }
@@ -94,7 +94,6 @@ const Login = () => {
                     type="password"
                     name="password"
                     autoComplete="current-password"
-                    helperText="La contraseña debe tener un minimo de 6 caracteres"
                 />
                 
                 <Button variant="contained" type="submit">Ingresar</Button>  

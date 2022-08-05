@@ -1,0 +1,22 @@
+.checkoutResume-container{
+    display: flex;
+    flex-direction: column;
+    gap:30px;
+    align-items: center;
+    background-color: #fff;
+    width: 50%;
+    margin: auto;
+    height: 300px;
+    border-radius: 10px;
+    justify-content: center;
+}
+
+.checkoutResume-container span{
+    font-weight: 500;
+    font-size: 20px;
+}
+
+.checkoutResume-container a{
+    color:#1976d2;
+}
+

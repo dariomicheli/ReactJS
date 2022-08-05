@@ -5,21 +5,24 @@ import { db } from "../../firebase/firebase";
 import { collection, addDoc, serverTimestamp, doc, updateDoc } from 'firebase/firestore';
 import CheckoutForm from '../CheckoutForm/CheckoutForm';
 import CheckoutResume from '../CheckoutResume/CheckoutResume';
-import NotFound from '../NotFound/NotFound';
+import {Navigate} from 'react-router-dom';
+import CartResume from '../CartResume/CartResume';
+import Stack from '@mui/material/Stack';
+import { useAuth } from '../../context/AuthContext';
 
 const Checkout = () => {
-
+    const {user}= useAuth();
     const {cartProducts,total,clear} = useContext(CartContext);
     const [orderId, setOrderId] = useState('');
-    const [user, setUser] = useState({
-        email: '',
+    const [buyer, setBuyer] = useState({
+        email: user.email,
         name: '',
         surname: '',
         phone: ''
     });
 
     const handleChange = ({name,value}) =>
-        setUser({...user, [name]:value});
+        setBuyer({...buyer, [name]:value});
 
     const handleSubmit = e => {
         e.preventDefault();
@@ -29,7 +32,7 @@ const Checkout = () => {
     const sendOrder = () => {
         const ordersCollection = collection (db, 'orders');
         addDoc(ordersCollection,{
-            user,
+            buyer,
             items: cartProducts,
             date: serverTimestamp(),
             total
@@ -48,12 +51,20 @@ const Checkout = () => {
     }
 
 
-    if(cartProducts.length === 0 && orderId === '') return <NotFound />
+    if(cartProducts.length === 0 && orderId === '') return <Navigate to='/' />
 
     return (
         <>
             {orderId===''
-                ? <CheckoutForm handleSubmit={handleSubmit} handleChange={handleChange} /> 
+                ? (
+                    <>
+                        <h2>Finalizar la Compra</h2> 
+                        <Stack direction="row" spacing={2} justifyContent="space-between">
+                            <CheckoutForm handleSubmit={handleSubmit} handleChange={handleChange} /> 
+                            <CartResume />
+                        </Stack>
+                    </>
+                )
                 : <CheckoutResume orderId={orderId} />
             }
         </>
