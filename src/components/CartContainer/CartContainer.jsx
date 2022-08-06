@@ -20,7 +20,7 @@ const CartContainer = () => {
                 <div className="cart-empty">
                     <h3>Su carrito está vacio</h3>
                     <p>
-                        Para seguir comprando, navegar por las categorías en el sitio, o
+                        Para seguir comprando, navega por las categorías del menu o
                         haga click <Link to="/">aca</Link>.
                     </p>
                 </div>

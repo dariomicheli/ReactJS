@@ -1,5 +1,6 @@
 .cartTotal-container{
     background-color: #fff;
+    border: 1px solid rgb(240, 240, 240);
     width: 30%;
     height: 310px;
     margin: 10px 0;
@@ -24,28 +25,4 @@
 .cartTotal-total{
     font-weight: 600;
     font-size: 20px;
-}
-
-.cartTotal-btnFinalizarCompra, .cartTotal-btnContinuarComprando{
-    display: block;
-    cursor: pointer;
-    height: 40px;
-    font-size: 16px;
-    text-decoration: none;
-    text-align: center;
-    line-height: 40px;
-}
-
-.cartTotal-btnFinalizarCompra:hover, .cartTotal-btnContinuarComprando:hover{
-    font-weight:bolder;
-}
-
-.cartTotal-btnFinalizarCompra{
-    background-color: var( --menuItems-bg-color);
-    color: #fff;
-}
-
-.cartTotal-btnContinuarComprando{
-    border: 1px solid var( --menuItems-bg-color);
-    color: var( --menuItems-bg-color);
 }

@@ -6,6 +6,7 @@ import {CartContext} from '../../context/CartContext';
 import Snackbar from '@mui/material/Snackbar';
 import MuiAlert from '@mui/material/Alert';
 import Button from '@mui/material/Button';
+import {formatNumber} from '../../utils/formatNumber';
 
 const Alert = React.forwardRef(function Alert(props, ref) {
     return <MuiAlert elevation={6} ref={ref} variant="filled" {...props} />;
@@ -44,22 +45,26 @@ function ItemDetail({product}) {
     };
     
     return (
-        <div className='detail-container'>
-            <div className='detail-img'>
-                <img src={pictureUrl} alt={name}/>
-            </div>
-            <div className='detail-body'>
-                <h2>{name}</h2>
-                <span>${price}</span>
-                <p>{description}</p>
-                {cart 
-                    ? (
-                        <>
-                            <Button variant="contained" color="success"onClick={()=> navigate('/cart')}>Ir al Carrito</Button>
-                            <Button variant="outlined" onClick={()=> navigate('/')}>Continuar comprando</Button>
-                        </>
-                    )
-                    : <ItemCount stock={stock} onAdd={onAdd} buyItems={buyItems}/>}              
+        <>
+            <div className='detail-container'>
+                <div className='detail-img'>
+                    <img src={pictureUrl} alt={name}/>
+                </div>
+                <div className='detail-body'>
+                    
+                    <h2 className="detail-name">{name}</h2>
+                    
+                    <p className="detail-description">{description}</p>
+                    <span className="detail-price">${formatNumber(price)}</span>
+                    {cart 
+                        ? (
+                            <>
+                                <Button variant="contained" color="success"onClick={()=> navigate('/cart')}>Ir al Carrito</Button>
+                                <Button variant="outlined" onClick={()=> navigate('/')}>Continuar comprando</Button>
+                            </>
+                        )
+                        : <ItemCount stock={stock} onAdd={onAdd} buyItems={buyItems}/>}              
+                </div>       
             </div>
             <Snackbar 
             anchorOrigin={{ vertical, horizontal }}
@@ -71,8 +76,8 @@ function ItemDetail({product}) {
                 <Alert onClose={handleClose} severity="success" sx={{ width: '100%' }}>
                     Agregado al carrito!
                 </Alert>
-            </Snackbar>        
-        </div>
+            </Snackbar> 
+        </>
     );
 }
 

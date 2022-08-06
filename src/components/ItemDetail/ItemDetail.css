@@ -1,17 +1,16 @@
 .detail-container{
-    max-width: 1200px;
     margin: auto;
     padding: 60px 0;
     background-color: #fff;
     display: flex;
     flex-wrap: wrap;
     justify-content: space-around;
+    border-radius: 10px;
 }
 
 .detail-img{
     width: 500px;
     height: 400px;
-    padding: 20px;
 }
 
 .detail-img > img{
@@ -21,26 +20,25 @@
 }
 
 .detail-body{
-    border: 1px solid rgb(218, 218, 218);
-    border-radius: 5px;
+    border: 1px solid rgb(240, 240, 240);
+    border-radius: 10px;
     width: 500px;
-    padding: 20px;
+    padding: 40px;
     display: flex;
     flex-direction: column;
-    gap: 15px;
+    gap: 25px;
 }
 
-.detail-btn{
-    display: block;
-    border: 1px solid var( --menuItems-bg-color);
-    color: var( --menuItems-bg-color);
-    width: 90%;
-    margin: auto;
-    text-align: center;
-    line-height: 40px;
-    text-decoration: none;
+.detail-price{
+    font-weight: 300;
+    font-size: 25px;
 }
 
-.detail-btn:hover{
-    font-weight: bolder;
+.detail-name{
+    font-weight: 500;
+}
+
+.detail-description{
+    line-height: 25px;
+    font-style: italic;
 }

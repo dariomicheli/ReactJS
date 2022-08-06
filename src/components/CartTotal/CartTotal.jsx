@@ -3,6 +3,7 @@ import "./CartTotal.css";
 import {useNavigate} from 'react-router-dom';
 import {CartContext} from '../../context/CartContext';
 import Button from '@mui/material/Button';
+import {formatNumber} from '../../utils/formatNumber';
 
 const CartTotal = () => {
 
@@ -17,11 +18,11 @@ const CartTotal = () => {
             <div className='cartTotal-amount'>
                 <div className='cartTotal-subtotal'>
                     <span>Subtotal</span>
-                    <span>${total}</span>
+                    <span>${formatNumber(total)}</span>
                 </div>
                 <div className='cartTotal-total'>
                     <span>Total</span>
-                    <span>${total}</span>
+                    <span>${formatNumber(total)}</span>
                 </div>
             </div>
             <div className='cartTotal-btns'>

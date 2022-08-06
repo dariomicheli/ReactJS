@@ -1,6 +1,7 @@
 .cart-container{
     display: flex;
-    gap: 10px;
+    flex-wrap: wrap;
+    justify-content: space-between;
 }
 
 .cart-empty{

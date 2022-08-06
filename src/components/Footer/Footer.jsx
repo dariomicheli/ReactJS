@@ -12,7 +12,7 @@ function Footer() {
                 <a href="https://www.instagram.com" rel="noreferrer" target="_blank"><InstagramIcon/></a>
                 <a href="https://www.twitter.com" rel="noreferrer" target="_blank"><TwitterIcon/></a>
             </div>
-            <p>Creado por Dario Micheli</p>
+            <p>Desarrollado por Dario Micheli</p>
         </div>
     );
 }
