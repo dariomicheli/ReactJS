@@ -1,0 +1,37 @@
+.itemFull,.logo-name,.itemResponsive{
+    display: block;
+    text-decoration: none;
+    text-transform: uppercase;
+    color: #fff;
+    padding: 8px;
+}
+
+.itemResponsive{
+    color:rgb(34, 34, 34);
+    margin-top: 10px;
+}
+
+.itemFull:hover,.logo-name:hover{
+    background-color: rgba(50, 50, 50, .1);
+    transition: all .5 ease-in-out;
+}
+
+.logoImg{
+    width: 40px;
+    height: 40px;
+    animation: giro 5s ease-in-out 5s infinite alternate;
+}
+
+@keyframes giro{
+    from{
+        transform: rotate(0deg);
+    }
+    to{
+        transform: rotate(-60deg);
+    }
+    
+}
+
+.logo-name{
+    letter-spacing: 4px;
+}

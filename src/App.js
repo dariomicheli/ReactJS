@@ -1,5 +1,5 @@
 import './App.css';
-import NavBar from './components/NavBar/NavBar';
+import ResponsiveNavbar from './components/NavBar/ResponsiveNavbar';
 import ItemListContainer from './components/ItemListContainer/ItemListContainer';
 import Footer from './components/Footer/Footer';
 import ItemDetailContainer from './components/ItemDetailContainer/ItemDetailContainer';
@@ -20,7 +20,7 @@ function App() {
     <BrowserRouter>
       <CartProvider>
         <AuthProvider>
-          <NavBar />
+          <ResponsiveNavbar />
           <main>
             <Routes>
               <Route path='/' element={<ItemListContainer />} />

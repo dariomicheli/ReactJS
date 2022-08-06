@@ -1,7 +1,7 @@
 .footer-container{
     max-width: 1200px;
     min-height: 15vh;
-    background-color: var(--menu-bg-color);
+    background-color: #1976d2;
     margin: auto;
     color: #fff;
     display: flex;
