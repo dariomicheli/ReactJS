@@ -2,7 +2,6 @@ import React from 'react';
 import './Item.css';
 import {Link} from 'react-router-dom';
 import {formatNumber} from '../../utils/formatNumber';
-import Item2 from './Item2';
 
 function Item({product}) {
   const {id,name,pictureUrl,price,category}=product;
