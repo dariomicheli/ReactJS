@@ -16,7 +16,7 @@
 }
 
 .cartResumeItem-imgContainer{
-    width: 80px;
+    min-width: 80px;
     height: 80px;
 }
 
@@ -47,4 +47,10 @@
     font-weight: 600;
     font-size: 20px;
     padding-left: 10px;
+}
+
+@media (max-width:900px){
+    .cartResume-container{
+        width: 100%;
+    }
 }

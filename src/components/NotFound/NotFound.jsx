@@ -1,4 +1,3 @@
-import './NotFound.css';
 import SentimentVeryDissatisfiedIcon from '@mui/icons-material/SentimentVeryDissatisfied';
 import Button from '@mui/material/Button';
 import {useNavigate} from 'react-router-dom';
@@ -14,8 +13,8 @@ const NotFound = () => {
 
   return (
     <Box sx={{ width: '100%' }}>
-      <Stack spacing={2} justifyContent="center" alignItems="center">
-        <SentimentVeryDissatisfiedIcon color="disabled" sx={{ fontSize: 300 }}/>
+      <Stack spacing={2} justifyContent="center" alignItems="center" sx={{textAlign:"center"}}>
+        <SentimentVeryDissatisfiedIcon color="disabled" sx={{ fontSize: {xs:150, sm:300 }}}/>
         <h2>Upss!</h2>
         <p>No hemos podido encontrar la página que buscabas</p>
         <Button onClick={handleBtnHome}>Ir al inicio</Button>

@@ -8,7 +8,7 @@ const CheckoutResume = ({orderId}) => {
     return (
         <div className="checkoutResume-container">
             <Stack direction="row" spacing={1}  justifyContent="center" alignItems="center">
-                <CheckCircleOutlineIcon color="success"/>
+                <CheckCircleOutlineIcon color="success" sx={{fontSize:50}}/>
                 <h2>¡Gracias por su compra!</h2>
             </Stack>
             <p>Su id de compra es: <span>{orderId}</span></p>

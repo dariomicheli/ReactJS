@@ -10,5 +10,11 @@
     height: 450px;
 }
 
+@media (max-width:900px){
+    .form-container{
+        width: 100%;
+    }
+}
+
 
 

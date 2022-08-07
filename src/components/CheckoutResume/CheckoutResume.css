@@ -4,11 +4,11 @@
     gap:30px;
     align-items: center;
     background-color: #fff;
-    width: 50%;
-    margin: auto;
+    width: 100%;
     height: 300px;
     border-radius: 10px;
     justify-content: center;
+    text-align: center;
 }
 
 .checkoutResume-container span{
