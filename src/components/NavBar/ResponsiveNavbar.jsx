@@ -88,7 +88,7 @@ const ResponsiveNavbar = () => {
                     </Box>
 
                     <Stack direction="row" alignItems="center">
-                        <Box sx={{display: { xs: 'flex', md: 'none' },mr:2}}>
+                        <Box sx={{display: { xs:'none', sm: 'flex', md: 'none' },mr:2}}>
                             <img src={logo} alt="logo" className='logoImg'/>
                         </Box>
                         <Box sx={{display: { xs: 'flex', md: 'none' }}}>

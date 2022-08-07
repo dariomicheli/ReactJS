@@ -5,3 +5,9 @@
 .sinStock{
     color: red;
 }
+
+@media (max-width: 600px){
+    .stock,.sinStock{
+        display: block;
+    }
+}

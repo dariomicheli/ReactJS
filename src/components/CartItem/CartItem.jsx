@@ -28,38 +28,41 @@ const CartItem = ({product}) => {
             <div className='cartItem-imgContainer'>
                 <img src={pictureUrl} alt={name} className='cartItem-img' />
             </div>
-            <span className='cartItem-name'>{name}</span>
-            <Stack direction="row" alignItems="center">
-                <Tooltip title="Quitar">
-                    <span>
-                        <IconButton 
-                        disabled={quantity<=1}
-                        onClick={handleClickRemove}
-                        color="primary"
-                        >
-                            <RemoveCircleOutlineIcon />
-                        </IconButton>
-                    </span>
-                </Tooltip>
-                <span className='cartItem-quantity'>{quantity}</span>
-                <Tooltip title="Agregar">
-                    <span>
-                        <IconButton
-                        disabled={quantity>=stock} 
-                        onClick={handleClickAdd}
-                        color="primary"
-                        >
-                            <AddCircleOutlineIcon />
-                        </IconButton>
-                    </span>
-                </Tooltip>
-            </Stack>
-            <span className='cartItem-price'>${formatNumber(price)}</span>
+            <div className='cartItem-data'>
+                <span className='cartItem-name'>{name}</span>
+                <Stack direction="row" alignItems="center">
+                    <Tooltip title="Quitar">
+                        <span>
+                            <IconButton 
+                            disabled={quantity<=1}
+                            onClick={handleClickRemove}
+                            color="primary"
+                            >
+                                <RemoveCircleOutlineIcon />
+                            </IconButton>
+                        </span>
+                    </Tooltip>
+                    <span className='cartItem-quantity'>{quantity}</span>
+                    <Tooltip title="Agregar">
+                        <span>
+                            <IconButton
+                            disabled={quantity>=stock} 
+                            onClick={handleClickAdd}
+                            color="primary"
+                            >
+                                <AddCircleOutlineIcon />
+                            </IconButton>
+                        </span>
+                    </Tooltip>
+                </Stack>
+                <span className='cartItem-price'>${formatNumber(price)}</span>
+            </div>
             <Tooltip title="Eliminar">
                 <IconButton aria-label="eliminar" onClick={() => removeItem(product.id)}>
                     <DeleteIcon />
                 </IconButton>
             </Tooltip>
+        
         </div>
     )
 }

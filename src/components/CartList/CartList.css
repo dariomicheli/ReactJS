@@ -1,8 +1,13 @@
 .cartList-container{
     margin: 10px 0;
     width: 60%;
-    min-width: 500px;
     display: flex;
     flex-direction: column;
     gap: 10px;
+}
+
+@media (max-width: 900px){
+    .cartList-container{
+        width: 100%;
+    }
 }

@@ -51,9 +51,7 @@ function ItemDetail({product}) {
                     <img src={pictureUrl} alt={name}/>
                 </div>
                 <div className='detail-body'>
-                    
                     <h2 className="detail-name">{name}</h2>
-                    
                     <p className="detail-description">{description}</p>
                     <span className="detail-price">${formatNumber(price)}</span>
                     {cart 

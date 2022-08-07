@@ -1,4 +1,3 @@
-import './Checkout.css';
 import { useState, useContext } from 'react';
 import {CartContext} from '../../context/CartContext';
 import { db } from "../../firebase/firebase";
@@ -62,7 +61,9 @@ const Checkout = () => {
                 ? (
                     <>
                         <h2>Finalizar la Compra</h2> 
-                        <Stack direction="row" spacing={2} justifyContent="space-between">
+                        <Stack spacing={2} justifyContent="space-between"
+                        sx={{flexDirection:{xs:"column-reverse", md:"row"}}}
+                        >
                             <CheckoutForm handleSubmit={handleSubmit} handleChange={handleChange} loading={loading}/> 
                             <CartResume />
                         </Stack>

@@ -35,3 +35,12 @@
 .logo-name{
     letter-spacing: 4px;
 }
+
+@media (max-width: 360px) {
+
+    .logo-name{
+        letter-spacing:normal;
+        font-size: 14px;
+    }
+    
+}

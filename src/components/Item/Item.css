@@ -64,3 +64,41 @@
     font-size: 14px;
     font-style: italic;
 }
+
+@media (min-width: 360px) and (max-width: 600px) {
+
+    .item-container{
+        width: 90%;
+        height: 200px;
+    }
+
+    .card-container{
+        flex-direction: row;
+        padding-bottom: 0px;
+    }
+
+    .card-img {
+        width: 50%;
+        min-width: 150px;
+        height: 100%;
+    }
+
+    .card-img img{
+        border-radius: 10px;
+    }
+
+    .card-body {
+        padding: 10px;
+        padding-left: 20px;
+        width: 50%;
+        overflow: scroll;
+    }
+    
+}
+
+@media (max-width: 360px) {
+
+    .item-container{
+        width: 100%;
+    }
+}

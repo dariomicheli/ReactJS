@@ -19,7 +19,21 @@
 .registerForm{
     display: flex;
     flex-direction: column;
-    width: 70%;
+    width: 300px;
     gap: 20px;
     align-items: center;
+}
+
+@media (max-width: 900px){
+    .register-container{
+        width: 90%;
+    }
+    .register-container p{
+        text-align: center;
+    }
+}
+@media (max-width: 360px){
+    .registerForm,.register-container{
+        width: 100%;
+    }
 }

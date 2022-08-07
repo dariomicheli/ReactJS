@@ -26,3 +26,17 @@
     font-weight: 600;
     font-size: 20px;
 }
+
+@media (max-width:900px){
+    .cartTotal-container{
+        width: 100%;
+    }
+    .cartTotal-subtotal, .cartTotal-total{
+        justify-content: space-around;
+    }
+
+    .cartTotal-btns{
+        align-self: center;
+
+    }
+}
