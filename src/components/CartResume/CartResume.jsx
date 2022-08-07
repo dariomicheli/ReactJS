@@ -2,6 +2,7 @@ import './CartResume.css';
 import Divider from '@mui/material/Divider';
 import {CartContext} from '../../context/CartContext';
 import {useContext} from "react";
+import {formatNumber} from '../../utils/formatNumber';
 
 
 const CartResume = () => {
@@ -21,13 +22,13 @@ const CartResume = () => {
                         <span className='cartResumeItem-name'>{product.name}</span>
                         <span className='cartResumeItem-quantity'>X {product.quantity}</span>
                     </div>
-                    <span className='cartResumeItem-price'>${product.price}</span>
+                    <span className='cartResumeItem-price'>${formatNumber(product.price)}</span>
                 </div>
             ))}
             <Divider />
             <div className="cartResume-total">
                 <span>Total</span>
-                <span>${total}</span>
+                <span>${formatNumber(total)}</span>
             </div>
         </div>
     )
